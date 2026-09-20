@@ -1,83 +1,47 @@
-# iD.stone · Material Experience / Edición 02
+# iD.stone — SIGNAL 03
 
-Prototipo de producto en español. HTML, CSS y JavaScript sin dependencias, compilación, claves API ni servicios externos.
+Web de producto con portada escultórica, infraestructura de lectura automática, escenario continuo, DPP y catálogo BIM conceptual. Evolución de SIGNAL 02; Continuum 05 permanece separado.
 
-## Abrir
+## Abrir y subir a GitHub
 
-La forma más sencilla: descomprimir y abrir `index.html` en un navegador. El pasaporte, la arquitectura, los módulos de operación y el dossier funcionan con archivos locales.
+Abre `index.html` o ejecuta `node server.mjs` para probar en HTTP local. Sube los archivos y carpetas del interior de este ZIP al repositorio. No requiere instalación, claves o conectores. No se ha publicado ni creado un repositorio remoto.
 
-Para probar también la recarga sin red mediante el service worker, con Node.js instalado:
+La entrega HTML autocontenida se abre directamente e incluye imágenes y PDFs. Para GitHub utiliza el contenido del ZIP: todos sus archivos están por debajo de 25 MB.
 
-```sh
-node server.mjs
-```
+- `index.html`: web completa.
+- `recorrido.html`: recorrido independiente.
+- `atlas.html`: mesa operativa de demostración.
+- `docs/ID_Stone_Dossier_Producto_15p.pdf`: dossier actualizado, 15 páginas, aproximadamente 16,3 MB.
+- `docs/ID_Stone_Beneficios_Proceso.pdf`: lámina de beneficios.
+- `signal.*`: presentación, simulación del puesto y selector de operaciones.
+- `journey.*`: recorrido y funciones operativas compartidas.
+- `evolution.*`: beneficios, vista BIM y eventos de unidades.
 
-Abrir `http://localhost:8080`. La aplicación solo se sirve en el equipo local. Para cerrar: Ctrl+C.
+## Recorrido continuo
 
-## Subir al repositorio
+Las imágenes de cantera, fábrica y arquitectura permanecen en coordenadas fijas dentro de un escenario de 4.100 × 1.450 unidades. La cámara cambia de posición y encuadre mediante una curva continua; no sustituye imágenes ni usa fundidos entre escenas. La línea representa relaciones conceptuales, no una carretera ni cobertura de radio.
 
-Subir el CONTENIDO de esta carpeta a la raíz del repositorio:
+Scroll nativo con amortiguación dependiente del tiempo, selección de etapas, barra accesible, reproducción circular de 110 segundos, pausa y modo cine. La vista general inicial y final coincide para cerrar el bucle. Al pausar se alinea la posición visual con el scroll. Fuera de vista se detiene la animación. Con movimiento reducido se mantiene la vista general y cambia la información de etapa.
 
-- `index.html`
-- `art.css` y `art.js` (nueva dirección artística e interacciones)
-- `styles.css`
-- `app.js`
-- `sw.js`
-- `assets/` completo
-- `docs/ID_Stone_Dossier_Producto_15p.pdf`
-- `server.mjs`, `README.md`, `ASSETS.md` y `.nojekyll`
+Es una composición 2.5D, no vídeo ni un modelo 3D navegable. Las prestaciones dependen del dispositivo y navegador.
 
-No hace falta ejecutar `npm install` ni generar una carpeta de compilación. Las rutas son relativas: sirven también bajo una subcarpeta de repositorio.
+## DPP y BIM
 
-El botón «Descargar dossier» apunta a `docs/ID_Stone_Dossier_Producto_15p.pdf`. Se incluye la edición 04, de 15 páginas. Para actualizarla, sustituir ese archivo conservando el nombre; revisar edición, tamaño y páginas en `index.html` si cambian.
+El DPP diferencia el tipo de producto de las unidades físicas y sus eventos. Incluye identidad, documentos, permisos, versiones e interoperabilidad como estructura propuesta.
 
-No se ha creado ningún repositorio ni desplegado la web. Subir archivos a un repositorio no es lo mismo que publicarlos como una web. Mantener el repositorio privado mientras se revisa el prototipo. No se incluye despliegue automático.
+Fuente normativa: Reglamento (UE) 2024/3110, artículos 22.7 y 75–80:
+https://eur-lex.europa.eu/eli/reg/2024/3110/oj?locale=es
 
-## Qué funciona
+La obligación del fabricante se aplica 18 meses después de la entrada en vigor del acto delegado que establece el sistema; comprobar producto, transitorios y actos aplicables. No se afirma una fecha universal para toda la piedra ni una certificación automática.
 
-- Tres capas seleccionables en la portada: materia, identidad y memoria.
-- Galería de producto con asiento Arco y lavabo Monolito, fichas de identidad y nuevos assets.
-- Portada escultórica con movimiento sutil, anillos de datos y tipografía editorial.
-- Pasaporte con cinco etapas, genealogía y ficha ampliada.
-- Selección de tres elementos arquitectónicos con su historial.
-- Captura de eventos de recepción, revisión e incidencia.
-- Modo offline elegido y detección de la desconexión real.
-- Cola persistente en el navegador y conciliación manual simulada.
-- Conteo de unidades recibidas únicas, sin duplicar stock por repetir recepción o sincronización.
-- CSV descargable de los eventos.
-- Borrador HTML descargable del albarán desde recepciones conciliadas.
-- Autocompletado de cuatro campos documentales desde eventos aceptados de ST-0248-A.
-- Asignación/devolución simulada de EPI.
-- Descarga del dossier PDF incluido.
-- Diseño adaptable, teclado, foco visible, ventanas accesibles y respeto de movimiento reducido.
+El catálogo muestra cuatro familias conceptuales y permite consultar sus parámetros propuestos o los eventos simulados de una unidad. No entrega RFA/IFC ni familias paramétricas de producción. Los formatos, conectores, geometría, prestaciones y documentos requieren desarrollo y validación según proyecto. Los diseños escultóricos tampoco son detalles de cálculo o fabricación.
 
-## Prueba del modo offline
+## Funciones y límites
 
-1. Abrir con servidor local o HTTPS y esperar a que termine la primera carga.
-2. En Laboratorio, pulsar «Probar sin conexión».
-3. Registrar un evento. Queda pendiente, guardado en este dispositivo.
-4. Recargar: el evento y el modo elegido permanecen.
-5. Pulsar «Volver a online». La cola no se vacía sola.
-6. Pulsar «Sincronizar ahora». Se concilia una vez dentro de la simulación.
-7. Registrar y conciliar de nuevo la misma unidad: el contador de unidades recibidas sigue contando una sola unidad.
+Conserva beneficios por etapa, áreas de operación, stock/albaranes, evidencias ISO/UNE, personas/EPIs, registro offline local y conciliación explícita simulada. El puesto de lectura es una simulación: no hay backend ni hardware conectado. Las ampliaciones mantienen su estado de propuesta o validación.
 
-También se puede poner la red en Offline desde las herramientas del navegador y recargar tras la primera carga completa. El service worker conserva la web y sus imágenes. El PDF no se precarga: debe descargarse aparte. Con `file://`, el service worker no está disponible, pero el sitio puede abrirse desde sus archivos locales.
+En HTTP local/HTTPS, la web puede recargarse sin red tras completar su primera carga y cacheado. Los PDFs no se precargan en el service worker. La entrega HTML autocontenida incluye los PDF para descargarlos localmente.
 
-## Alcance y datos
+## Dossier
 
-Esta es una demostración de front-end. No se conecta a CUEVA, ERP, lectores RFID, bases de datos ni servicios de identidad. «Conciliar» simula una aceptación local, no confirma una recepción real ni resuelve conflictos entre centros reales. Los datos de ejemplo se conservan en `localStorage` bajo `idstone-explorer-v1`. El botón Reiniciar demo borra solo esos datos.
-
-No introducir datos sensibles en este prototipo. La separación de roles, autenticación, cifrado local, sincronización remota con idempotencia, resolución de conflictos, documentos de negocio y revisión técnica deben implementarse en el producto conectado.
-
-Las evidencias ISO/UNE ilustran preparación documental, no certificación. La asignación de un EPI no acredita uso correcto o habilitación. Las imágenes y los historiales son conceptuales, no implantaciones reales.
-
-## Estructura y edición
-
-- `index.html`: narrativa, secciones, campos y descarga del dossier.
-- `styles.css`: colores, tipografía, composición, responsive y movimiento.
-- `app.js`: estado local, pasaporte, elementos, eventos y exportaciones.
-- `sw.js`: precarga de la aplicación. Incrementar `CACHE` al publicar una revisión para renovar archivos sin conexión.
-- `assets/`: imágenes WebP locales; no hay solicitudes a CDNs, fuentes remotas ni analítica.
-- `docs/`: presentación PDF.
-
-Conserva las advertencias de demostración al enseñar capacidades simuladas. El PDF incluido conserva sus propias notas de alcance y revisión.
+Se mantienen 15 páginas. Actualizadas 04 (elementos de diseño), 05 (DPP) y 14 (catálogo BIM e implantación). Las demás páginas se conservan. Las referencias de campo no se presentan como rendimientos demostrados en piedra.
